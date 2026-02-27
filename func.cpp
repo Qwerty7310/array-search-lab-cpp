@@ -84,13 +84,16 @@ int Sentinel_Linear_Search(int *array, int n, int x, int &count) {
 }
 
 int Ordered_Array_Search(int *array, int n,  int x, int& count) {
-    int last = array[n-1];
-    array[n] = LONG_MAX;
+    count = 0;
     int i = 0;
-    while (x > array[i]) i++;
-    array[n-1] = last;
-    if (x == array[i]) return i;
-    if (x == array[n-1]) return n-1;
+    while (i < n && x > array[i]) {
+        count++;
+        i++;
+    }
+    if (i < n && x == array[i]) {
+        count++;
+        return i;
+    }
     return -1;
 }
 

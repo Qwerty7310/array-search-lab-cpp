@@ -64,5 +64,8 @@ int main() {
 
         }
         cout << endl;
+
+        delete[] d_arr1;
+        delete[] d_arr2;
     }
 }
